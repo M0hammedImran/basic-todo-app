@@ -28,7 +28,6 @@ function addTodos(e) {
     const li = document.createElement('li');
     li.innerText = input;
     div.appendChild(li);
-    console.log(input);
     saveTodo({ todo: input, isDone: false });
 
     const completeBtn = document.createElement('button');
@@ -99,6 +98,7 @@ function DeleteAll() {
       item.remove();
     });
   });
+  localStorage.clear();
 }
 
 function saveTodo(todo) {
@@ -113,33 +113,33 @@ function saveTodo(todo) {
 
 function getTodos() {
   if (localStorage.getItem('todos') === null) {
-    todos;
+    todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem('todos'));
+    todos.forEach(({ todo, isDone }) => {
+      div = document.createElement('div');
+      div.classList.add('todoItems');
+
+      const li = document.createElement('li');
+      li.innerText = todo;
+      div.appendChild(li);
+
+      const completeBtn = document.createElement('button');
+      completeBtn.classList.add('complete-btn');
+      completeBtn.innerHTML =
+        '<img src="./images/check-solid.svg" alt="Completed Button"/>';
+      div.appendChild(completeBtn);
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.classList.add('delete-btn');
+      deleteBtn.innerHTML =
+        '<img src="./images/trash-solid.svg"  alt="Delete Button" />';
+      div.appendChild(deleteBtn);
+      isDone === true ? div.classList.add('completed') : '';
+
+      todosList.appendChild(div);
+    });
   }
-  todos.forEach(({ todo, isDone }) => {
-    div = document.createElement('div');
-    div.classList.add('todoItems');
-
-    const li = document.createElement('li');
-    li.innerText = todo;
-    div.appendChild(li);
-
-    const completeBtn = document.createElement('button');
-    completeBtn.classList.add('complete-btn');
-    completeBtn.innerHTML =
-      '<img src="./images/check-solid.svg" alt="Completed Button"/>';
-    div.appendChild(completeBtn);
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('delete-btn');
-    deleteBtn.innerHTML =
-      '<img src="./images/trash-solid.svg"  alt="Delete Button" />';
-    div.appendChild(deleteBtn);
-    isDone === true ? div.classList.add('completed') : '';
-
-    todosList.appendChild(div);
-  });
 }
 
 function removeTodos(todo) {
