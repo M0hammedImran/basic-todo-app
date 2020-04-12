@@ -1,0 +1,148 @@
+*::selection {
+  background: rgb(54, 54, 54);
+  color: rgb(55, 200, 245);
+  font-variant: stylish;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    120deg,
+    rgb(146, 109, 247),
+    rgb(76, 188, 240),
+    #83a2f7
+  );
+}
+h1 {
+  margin: 5vh auto;
+  color: rgb(255, 255, 255);
+}
+.main {
+  min-height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+form {
+  width: 50%;
+}
+form input {
+  width: 100%;
+}
+form input,
+form button {
+  margin: 0;
+  padding: 0.5rem;
+  border: none;
+  outline: none !important;
+  font-size: 1.3rem;
+  background-color: #fff;
+  box-shadow: none;
+}
+button img {
+  width: 1em;
+  height: 1em;
+  outline: 0 !important;
+  border: 0;
+  pointer-events: none;
+}
+form button:hover {
+  background-color: rgb(200, 175, 255);
+}
+.actions {
+  min-height: 10vh;
+  max-width: 50%;
+  margin: 1rem auto;
+  min-width: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.actions button {
+  height: 2rem;
+  width: 5rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-weight: 500;
+  color: rgb(54, 54, 54);
+}
+.all-done {
+  background-color: rgb(168, 255, 172);
+}
+.undo-all {
+  background-color: rgb(247, 255, 138);
+}
+.delete-all {
+  background-color: rgb(255, 145, 125);
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+}
+.todo-container {
+  width: 60%;
+  margin: 5vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.todoItems {
+  background-color: #fff;
+  width: 100%;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: 500;
+  transition: all 0.5s ease;
+}
+li {
+  flex: 1;
+}
+li {
+  margin: 0;
+  padding: 0.5rem;
+  border: none;
+  outline: none !important;
+  font-size: 1.3rem;
+}
+.complete-btn,
+.delete-btn {
+  min-width: 3em;
+  min-height: 3em;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0;
+}
+.complete-btn {
+  background: rgb(130, 240, 127);
+}
+.delete-btn {
+  background: rgb(240, 172, 127);
+}
+.completed {
+  text-decoration: line-through;
+  text-decoration-thickness: 0.15em;
+  opacity: 0.6;
+}
+
+.fall {
+  transform: translateY(30rem) rotateZ(10deg);
+  opacity: 0;
+}
